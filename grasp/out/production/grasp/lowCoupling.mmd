@@ -1,0 +1,14 @@
+---
+title : "There is no relation between Cart and Item"
+---
+classDiagram
+    class Cart {
+        List<String> addedItems;
+        addToCart(String id)
+        removeFromCart(String id)
+        }
+    class Item {
+        String description;
+        Double price;
+        String itemID;
+        }

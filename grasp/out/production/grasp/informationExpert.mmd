@@ -1,0 +1,13 @@
+classDiagram
+class Item {
+String description;
+Double price;
+String itemID;
+}
+class Inventory {
+    Map<Item, Integer> items;
+    Inventory()
+    addItem(String description, double price, String itemID, int quantity)
+    getNumberOfItems() int
+}
+Inventory *-- Item : 1..*

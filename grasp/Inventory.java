@@ -11,6 +11,7 @@ public class Inventory { //This class is the information expert
                 description, price, itemID //It initialises data for each item (creator)
         );
         items.put(newItem, quantity);
+        System.out.println("After adding: "+items.toString());
     }
     int getNumberOfItems() {
         //The information expert has information about all items and can return count of items

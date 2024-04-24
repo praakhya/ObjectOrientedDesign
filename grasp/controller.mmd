@@ -1,0 +1,22 @@
+classDiagram
+    class Store
+    class StoreController {
+        Inventory inventory
+        StoreController()
+        getItems() String[][]
+        addItems(String desc, String price, String id, String quantity)
+    }
+    class Inventory {
+        Map<Item, Integer> items;
+        Inventory()
+        addItem(String description, double price, String itemID, int quantity)
+        getNumberOfItems() int
+    }
+    class Item {
+        String description
+        Double price
+        String itemID
+    }
+    Store *-- StoreController
+    StoreController *-- Inventory
+    Inventory *-- Item
