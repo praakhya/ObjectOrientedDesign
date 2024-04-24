@@ -1,0 +1,12 @@
+classDiagram
+class UserController
+class CartController
+class UserService
+class UserRepository
+class CartService
+class CartRepository
+UserController --> UserService
+UserController --> CartService
+CartController --> CartService
+UserService --> UserRepository
+CartService --> CartRepository

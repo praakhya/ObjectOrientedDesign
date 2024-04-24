@@ -1,0 +1,22 @@
+classDiagram
+    class Auth {
+        authenticate(String username, String password)String
+        logout()boolean
+    }
+    class GoogleAuth {
+        -Map<String,String> authDetails;
+        +GoogleAuth instance
+        -GoogleAuth()
+        +authenticate(String username, String password)String
+        +logout()boolean
+    }
+    class AppleAuth {
+        -String authKey;
+        +AppleAuth instance
+        -AppleAuth()
+        +authenticate(String username, String password)String
+        +logout()boolean
+    }
+    <<interface>> Auth
+    Auth <|-- GoogleAuth
+    Auth <|-- AppleAuth
