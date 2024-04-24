@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/interfaceSegregationPrinciple/interfaceSegregationPrinciple.iml" filepath="$PROJECT_DIR$/interfaceSegregationPrinciple/interfaceSegregationPrinciple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/openClosePrinciple/openClosePrinciple.iml" filepath="$PROJECT_DIR$/openClosePrinciple/openClosePrinciple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/singleResponsibilityPrinciple/singleResponsibilityPrinciple.iml" filepath="$PROJECT_DIR$/singleResponsibilityPrinciple/singleResponsibilityPrinciple.iml" />
       <module fileurl="file://$PROJECT_DIR$/solid.iml" filepath="$PROJECT_DIR$/solid.iml" />
     </modules>
   </component>

@@ -1,0 +1,14 @@
+classDiagram
+class BookWarehouse {
+    deliverDigitalBook(DigitalBookInterface digitalBookInterface)
+    deliverPaperbackBook(PaperbackBookInterface paperbackBookInterface)
+}
+class DigitalBookInterface{
+    deliver()
+}
+class PaperbackBookInterface{
+    deliver()
+}
+
+BookWarehouse --> DigitalBookInterface
+BookWarehouse --> PaperbackBookInterface

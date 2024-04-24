@@ -1,0 +1,23 @@
+classDiagram
+class Shape {
+    getArea()Double
+    getPerimeter()Double
+    getVolume()Double
+}
+class Sphere {
+    Double radius;
+    +getArea()Double
+    +getVolume()Double
+}
+class Triangle{
+    Double s1
+    Double s2
+    Double s3
+    +getArea()Double
+    +getPerimeter()Double
+}
+
+<<interface>> Shape
+Shape <|.. Triangle
+Shape <|.. Sphere
+

@@ -1,0 +1,19 @@
+classDiagram
+    class Book {
+        -String name;
+        -String author;
+        -Date publishedOn;
+        -String id;
+        +Book(String name, String author, Date publishedOn, String id)
+        +getName()String
+        +getAuthor()String
+        +getPublishedOn()Date
+        +getId()String
+    }
+    class BookShelf {
+        -List<Book> books
+        +searchBook(String id) Book
+        +addBook(String name, String author, Date publishedOn, String id)
+        +removeBook(String id)Book
+    }
+    BookShelf *-- Book

@@ -1,0 +1,33 @@
+classDiagram
+class Shape {
+    getArea()Double
+}
+class Shape2D {
+    getArea()Double
+    getPerimeter()Double
+}
+class Shape3D {
+    getArea()Double
+    getVolume()Double
+}
+class Sphere {
+    Double radius;
+    +getArea()Double
+    +getVolume()Double
+}
+class Triangle{
+    Double s1
+    Double s2
+    Double s3
+    +getArea()Double
+    +getPerimeter()Double
+}
+
+<<interface>> Shape
+<<interface>> Shape2D
+<<interface>> Shape3D
+Shape <|-- Shape2D
+Shape <|-- Shape3D
+Shape2D <|.. Triangle
+Shape3D <|.. Sphere
+
