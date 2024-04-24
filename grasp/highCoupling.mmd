@@ -1,0 +1,15 @@
+---
+title : "There is high coupling between Cart and Item"
+---
+classDiagram
+    class Cart {
+        List<Item> addedItems;
+        addToCart(Item id)
+        removeFromCart(Item id)
+        }
+    class Item {
+        String description;
+        Double price;
+        String itemID;
+        }
+        Cart *-- Item : 1..*
