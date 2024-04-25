@@ -83,15 +83,134 @@ class Database {
 | | It may be **difficult to unit test** the client code of the Singleton because many test frameworks rely on inheritance when producing mock objects.|
 
 # Factory Design Pattern
+**Defines an interface for creating an object, but let subclasses decide which class to instantiate.**
+It is also known as a virtual constructor.
 - A class which is responsible for the creation of objects of a particular type of class.
 - Loosens coupling by separating the construction code from code that uses the product.
 - Relies heavily on inheritance
 - The object being created is represented by an interface which is implemented by concrete products and the creator is represented by an abstract class which is extended by concrete factories.
 - easy extension, vague objects known, can introduce new products.
 - It violate open-close principle, because more if conditions have to be added to allow creation of new types (thus requiring modification of the class).
+```java
+class DiscFactory {
+	Disc getInstance(String discClass) {
+		if (discClass.equals("Music")) {
+			return new Music();
+		}
+		else if (discClass.equals("Movie")) {
+			return new Movie();
+		}
+		else if (discClass.equals("Game")) {
+			return new Game();
+		}
+		return null;
+	}
+}
+```
+```mermaid
+classDiagram
+class CD {
+	-String mediaType
+	-Long memory
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data)
+}
+class DVD {
+	-String mediaType
+	-Long memory
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data, String mediaType)
+}
+class BluRay {
+	-String mediaType
+	-Long memory
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data, String mediaType)
+}
+class Disc {
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data, String mediaType)
+}
+<<interface>> Disc
+class DiscFactory {
+	+getInstance(String discClass) Disc
+}
+class Client
+DiscFactory <.. Client : uses
+Disc <|.. CD : implements
+Disc <|.. DVD : implements
+Disc <|.. BluRay : implements
+DiscFactory ..> Disc : uses
+```
+
 ## Abstract Factory
 - allow producing families of related objects without specifying concrete classes (unlike simple factory where an if condition is required to choose the factory).
 - follows open-close and single responsibility principle
+```mermaid
+classDiagram
+class CD {
+	-String mediaType
+	-Long memory
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data)
+}
+class DVD {
+	-String mediaType
+	-Long memory
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data, String mediaType)
+}
+class BluRay {
+	-String mediaType
+	-Long memory
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data, String mediaType)
+}
+class Disc {
+	+getTypeOfMedia() String
+	+getMemory() Long
+	+play()
+	+write(String data, String mediaType)
+}
+<<interface>> Disc
+class DiscFactory {
+	+getInstance() Disc
+}
+<<interface>> DiscFactory
+class CDFactory {
+	+getInstance() CD
+}
+class DVDFactory {
+	+getInstance() DVD
+}
+class BluRayFactory {
+	+getInstance() BluRay
+}
+class Client
+DiscFactory <.. Client : uses
+Disc <|.. CD : implements
+Disc <|.. DVD : implements
+Disc <|.. BluRay : implements
+DiscFactory <|.. CDFactory : implements
+DiscFactory <|.. DVDFactory : implements
+DiscFactory <|.. BluRayFactory : implements
+DiscFactory ..> Disc : uses
+```
+
 # Builder Design Pattern
 - Extract object construction out of class and into seperate builder classes (build method inside the builder class).
 - The constructor of the class being built should not be public so that only the build method of builder class can access it.
